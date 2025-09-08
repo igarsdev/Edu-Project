@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Profil & Portofolio</title>
 
+    <!-- Font Awesome untuk ikon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
     <style>
       :root {
         --bg: #f5f6f8;
@@ -12,6 +18,7 @@
         --text: #2d3436;
         --muted: #6c757d;
         --brand: #111827;
+        --primary: #4f46e5;
         --chip: #eeeeee;
       }
       * {
@@ -39,15 +46,16 @@
 
       /* ======== SECTION 1: MENU ======== */
       .brandbar {
-        background: #fafafa;
-        border-bottom: 1px solid var(--line);
+        background: var(--primary);
+        color: #fff;
       }
       .brandbar table {
         width: 100%;
       }
       .brand {
         font-weight: 700;
-        padding: 12px 16px;
+        padding: 14px 16px;
+        font-size: 18px;
       }
       .menu {
         text-align: right;
@@ -56,17 +64,18 @@
       .menu a {
         display: inline-block;
         margin-left: 16px;
-        padding: 6px 10px;
+        padding: 6px 12px;
         border-radius: 10px;
-        background: var(--chip);
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
       }
       .menu a:hover {
-        filter: brightness(0.95);
+        background: rgba(255, 255, 255, 0.35);
       }
 
       /* ======== SECTION 2: HERO ======== */
       .hero {
-        padding: 16px;
+        padding: 28px;
         border-bottom: 1px solid var(--line);
       }
       .hero table {
@@ -74,17 +83,19 @@
       }
       .title {
         font-weight: 800;
+        font-size: 24px;
       }
       .lead {
         color: var(--muted);
-        margin: 8px 0 12px;
+        margin: 12px 0 18px;
       }
       .btn {
         display: inline-block;
-        background: #111827;
+        background: var(--primary);
         color: #fff;
-        padding: 8px 12px;
+        padding: 10px 14px;
         border-radius: 8px;
+        font-weight: 600;
       }
       .btn:hover {
         opacity: 0.9;
@@ -103,29 +114,40 @@
 
       /* ======== SECTION 3: BIODATA (6 BOX) ======== */
       .section-title {
-        padding: 22px 0 8px;
+        padding: 26px 0 10px;
         text-align: center;
         font-weight: 800;
+        font-size: 22px;
       }
       .section-sub {
         color: var(--muted);
         text-align: center;
-        margin-bottom: 16px;
+        margin-bottom: 18px;
       }
       .biodata {
-        padding: 0 16px 22px;
+        padding: 0 16px 28px;
       }
       .grid {
         width: 100%;
         border-collapse: separate;
-        border-spacing: 12px;
+        border-spacing: 14px;
       }
       .card {
         background: #fafafa;
         border: 1px solid var(--line);
         border-radius: 10px;
-        padding: 14px;
+        padding: 18px;
         text-align: center;
+        transition: 0.2s;
+      }
+      .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .card i {
+        font-size: 26px;
+        color: var(--primary);
+        margin-bottom: 8px;
       }
       .card .label {
         font-size: 12px;
@@ -138,13 +160,17 @@
 
       /* ======== SECTION 4: PORTOFOLIO ======== */
       .portfolio {
-        padding: 0 16px 28px;
+        padding: 0 16px 36px;
       }
       .p-card {
         background: #fafafa;
         border: 1px solid var(--line);
         border-radius: 12px;
         overflow: hidden;
+        transition: 0.2s;
+      }
+      .p-card:hover {
+        transform: scale(1.03);
       }
       .thumb {
         height: 160px;
@@ -155,11 +181,12 @@
         color: #9aa1a7;
       }
       .p-body {
-        padding: 10px 12px;
+        padding: 12px 14px;
       }
       .p-title {
         font-weight: 700;
         text-align: center;
+        color: var(--primary);
       }
       .p-desc {
         color: var(--muted);
@@ -186,11 +213,13 @@
       <section class="brandbar" id="header">
         <table>
           <tr>
-            <td class="brand">Brand</td>
+            <td class="brand"><i class="fa-solid fa-dragon"></i> Brand</td>
             <td class="menu">
-              <a href="#header">Header</a>
-              <a href="#biodata">Biodata</a>
-              <a href="#portofolio">Portofolio</a>
+              <a href="#header"><i class="fa-solid fa-house"></i> Header</a>
+              <a href="#biodata"><i class="fa-solid fa-user"></i> Biodata</a>
+              <a href="#portofolio"
+                ><i class="fa-solid fa-briefcase"></i> Portofolio</a
+              >
             </td>
           </tr>
         </table>
@@ -201,15 +230,23 @@
         <table>
           <tr>
             <td style="width: 55%; vertical-align: top; padding: 8px 12px">
-              <div class="title">Selamat Datang di Website Saya</div>
+              <div class="title">
+                <i class="fa-solid fa-hand-peace"></i> Selamat Datang di Website
+                Saya
+              </div>
               <p class="lead">
                 Ini adalah contoh header dua kolom. Kolom kiri berisi teks
                 seperti ini. Anda dapat mengganti isi sesuai kebutuhan.
               </p>
-              <a class="btn" href="#biodata">Pelajari Lebih Lanjut</a>
+              <a class="btn" href="#biodata"
+                ><i class="fa-solid fa-circle-info"></i> Pelajari Lebih
+                Lanjut</a
+              >
             </td>
             <td style="width: 45%; padding: 8px 12px">
-              <div class="imgbox">600 × 400</div>
+              <div class="imgbox">
+                <i class="fa-solid fa-image"></i>&nbsp; 600 × 400
+              </div>
             </td>
           </tr>
         </table>
@@ -223,28 +260,34 @@
         <table class="grid">
           <tr>
             <td class="card">
+              <i class="fa-solid fa-id-card"></i>
               <div class="label">Full Name</div>
               <div class="value">Nama Lengkap</div>
             </td>
             <td class="card">
+              <i class="fa-solid fa-graduation-cap"></i>
               <div class="label">Education</div>
               <div class="value">S1 Teknik Informatika</div>
             </td>
             <td class="card">
+              <i class="fa-solid fa-briefcase"></i>
               <div class="label">Pekerjaan</div>
               <div class="value">Web Developer</div>
             </td>
           </tr>
           <tr>
             <td class="card">
+              <i class="fa-solid fa-envelope"></i>
               <div class="label">Contact</div>
               <div class="value">email@saya.com</div>
             </td>
             <td class="card">
+              <i class="fa-solid fa-music"></i>
               <div class="label">Hobi</div>
               <div class="value">Membaca, Desain, Musik</div>
             </td>
             <td class="card">
+              <i class="fa-solid fa-map-marker-alt"></i>
               <div class="label">Alamat</div>
               <div class="value">Kota, Provinsi</div>
             </td>
@@ -259,21 +302,27 @@
         <table class="grid">
           <tr>
             <td class="p-card">
-              <div class="thumb">350 × 200</div>
+              <div class="thumb">
+                <i class="fa-solid fa-image"></i> 350 × 200
+              </div>
               <div class="p-body">
                 <div class="p-title">Proyek 1</div>
                 <div class="p-desc">Deskripsi proyek 1.</div>
               </div>
             </td>
             <td class="p-card">
-              <div class="thumb">350 × 200</div>
+              <div class="thumb">
+                <i class="fa-solid fa-image"></i> 350 × 200
+              </div>
               <div class="p-body">
                 <div class="p-title">Proyek 2</div>
                 <div class="p-desc">Deskripsi proyek 2.</div>
               </div>
             </td>
             <td class="p-card">
-              <div class="thumb">350 × 200</div>
+              <div class="thumb">
+                <i class="fa-solid fa-image"></i> 350 × 200
+              </div>
               <div class="p-body">
                 <div class="p-title">Proyek 3</div>
                 <div class="p-desc">Deskripsi proyek 3.</div>
