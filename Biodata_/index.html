@@ -3,9 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Profil & Portofolio</title>
+    <title>Profil & Portofolio (Responsive Table)</title>
 
-    <!-- Font Awesome untuk ikon -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -13,13 +12,13 @@
 
     <style>
       :root {
-        --bg: #f5f6f8;
-        --line: #dcdde1;
-        --text: #2d3436;
-        --muted: #6c757d;
-        --brand: #111827;
+        --bg: #f6f7fb;
+        --line: #e5e7eb;
+        --text: #1f2937;
+        --muted: #6b7280;
         --primary: #4f46e5;
-        --chip: #eeeeee;
+        --primary-weak: #eef2ff;
+        --white: #fff;
       }
       * {
         box-sizing: border-box;
@@ -37,14 +36,14 @@
       }
       .container {
         max-width: 1100px;
-        margin: 24px auto;
+        margin: 20px auto;
+        background: var(--white);
         border-radius: 14px;
-        background: #fff;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
         overflow: hidden;
       }
 
-      /* ======== SECTION 1: MENU ======== */
+      /* ======= SECTION 1: MENU ======= */
       .brandbar {
         background: var(--primary);
         color: #fff;
@@ -53,70 +52,87 @@
         width: 100%;
       }
       .brand {
-        font-weight: 700;
+        font-weight: 800;
         padding: 14px 16px;
         font-size: 18px;
+        white-space: nowrap;
       }
       .menu {
+        padding: 10px 16px;
         text-align: right;
-        padding: 12px 16px;
       }
       .menu a {
         display: inline-block;
-        margin-left: 16px;
-        padding: 6px 12px;
+        margin-left: 14px;
+        padding: 8px 12px;
         border-radius: 10px;
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.18);
         color: #fff;
+        font-weight: 600;
       }
       .menu a:hover {
-        background: rgba(255, 255, 255, 0.35);
+        background: rgba(255, 255, 255, 0.28);
+      }
+      /* hamburger (checkbox hack, tetap pakai table) */
+      #nav-toggle {
+        display: none;
+      }
+      .hamburger {
+        display: none;
+        cursor: pointer;
+        padding: 10px 14px;
+      }
+      .hamburger i {
+        font-size: 22px;
+        color: #fff;
       }
 
-      /* ======== SECTION 2: HERO ======== */
+      /* ======= SECTION 2: HERO ======= */
       .hero {
-        padding: 28px;
+        padding: 26px;
         border-bottom: 1px solid var(--line);
       }
       .hero table {
         width: 100%;
       }
       .title {
-        font-weight: 800;
-        font-size: 24px;
+        font-weight: 900;
+        font-size: 26px;
       }
       .lead {
         color: var(--muted);
-        margin: 12px 0 18px;
+        margin: 10px 0 18px;
+        line-height: 1.6;
       }
       .btn {
         display: inline-block;
         background: var(--primary);
         color: #fff;
         padding: 10px 14px;
-        border-radius: 8px;
-        font-weight: 600;
+        border-radius: 10px;
+        font-weight: 700;
       }
       .btn:hover {
-        opacity: 0.9;
+        opacity: 0.92;
       }
       .imgbox {
         width: 100%;
-        height: 300px;
+        height: 320px;
         display: flex;
         align-items: center;
         justify-content: center;
         border: 2px dashed #cfd3d8;
-        border-radius: 12px;
+        border-radius: 14px;
         color: #9aa1a7;
-        font-weight: 700;
+        font-weight: 800;
+        background: var(--primary-weak);
       }
 
-      /* ======== SECTION 3: BIODATA (6 BOX) ======== */
+      /* ======= SECTION 3: BIODATA ======= */
       .section-title {
-        padding: 26px 0 10px;
+        padding: 26px 0 6px;
         text-align: center;
-        font-weight: 800;
+        font-weight: 900;
         font-size: 22px;
       }
       .section-sub {
@@ -125,24 +141,25 @@
         margin-bottom: 18px;
       }
       .biodata {
-        padding: 0 16px 28px;
+        padding: 0 16px 30px;
       }
       .grid {
         width: 100%;
         border-collapse: separate;
         border-spacing: 14px;
+        table-layout: fixed;
       }
       .card {
         background: #fafafa;
         border: 1px solid var(--line);
-        border-radius: 10px;
+        border-radius: 12px;
         padding: 18px;
         text-align: center;
         transition: 0.2s;
       }
       .card:hover {
         transform: translateY(-3px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
       }
       .card i {
         font-size: 26px;
@@ -155,10 +172,10 @@
       }
       .card .value {
         margin-top: 6px;
-        font-weight: 600;
+        font-weight: 700;
       }
 
-      /* ======== SECTION 4: PORTOFOLIO ======== */
+      /* ======= SECTION 4: PORTOFOLIO ======= */
       .portfolio {
         padding: 0 16px 36px;
       }
@@ -170,21 +187,22 @@
         transition: 0.2s;
       }
       .p-card:hover {
-        transform: scale(1.03);
+        transform: scale(1.02);
       }
       .thumb {
-        height: 160px;
+        height: 170px;
         border-bottom: 1px solid var(--line);
         display: flex;
         align-items: center;
         justify-content: center;
         color: #9aa1a7;
+        background: var(--primary-weak);
       }
       .p-body {
         padding: 12px 14px;
       }
       .p-title {
-        font-weight: 700;
+        font-weight: 800;
         text-align: center;
         color: var(--primary);
       }
@@ -194,38 +212,130 @@
         text-align: center;
       }
 
-      /* simple responsiveness for small screens */
-      @media (max-width: 780px) {
+      /* =================== RESPONSIVE =================== */
+      /* <= 992px : hero gambar turun ke bawah */
+      @media (max-width: 992px) {
         .hero td {
           display: block;
           width: 100%;
         }
         .imgbox {
-          height: 220px;
+          height: 260px;
           margin-top: 12px;
+        }
+      }
+      /* <= 820px : menu jadi hamburger; grid biodata 2 kolom */
+      @media (max-width: 820px) {
+        .hamburger {
+          display: block;
+        }
+        .menu {
+          display: none;
+          text-align: left;
+          padding: 0 16px 12px;
+        }
+        #nav-toggle:checked ~ .menu {
+          display: block;
+        }
+        .menu a {
+          display: block;
+          margin: 10px 0 0;
+          background: rgba(255, 255, 255, 0.18);
+        }
+        .brandbar td:first-child {
+          width: 1%;
+        }
+        .brandbar td:last-child {
+          width: auto;
+        }
+        /* biodata: 2 kolom */
+        .biodata .grid tr {
+          display: flex;
+          gap: 14px;
+        }
+        .biodata .grid tr td {
+          flex: 1;
+        }
+        .biodata .grid tr td:nth-child(3) {
+          display: none;
+        } /* row 1 -> 2 kolom */
+        .biodata .grid tr:last-child td:nth-child(3) {
+          display: none;
+        } /* row 2 -> 2 kolom */
+        /* portofolio: 2 kolom */
+        .portfolio .grid tr {
+          display: flex;
+          gap: 14px;
+        }
+        .portfolio .grid td {
+          flex: 1;
+        }
+        .portfolio .grid td:last-child {
+          display: none;
+        }
+      }
+      /* <= 560px : semua jadi 1 kolom penuh */
+      @media (max-width: 560px) {
+        .brand {
+          font-size: 16px;
+        }
+        .title {
+          font-size: 22px;
+        }
+        .imgbox {
+          height: 210px;
+        }
+        /* tumpuk penuh */
+        .biodata .grid tr {
+          display: block;
+        }
+        .biodata .grid td {
+          display: block;
+          width: 100%;
+          margin-bottom: 14px;
+        }
+        .biodata .grid tr td:nth-child(3) {
+          display: block;
+        }
+        .portfolio .grid tr {
+          display: block;
+        }
+        .portfolio .grid td {
+          display: block;
+          width: 100%;
+          margin-bottom: 14px;
         }
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <!-- a. SECTION 1: MENU (TABLE) -->
+      <!-- SECTION 1: MENU -->
       <section class="brandbar" id="header">
         <table>
           <tr>
-            <td class="brand"><i class="fa-solid fa-dragon"></i> Brand</td>
-            <td class="menu">
-              <a href="#header"><i class="fa-solid fa-house"></i> Header</a>
-              <a href="#biodata"><i class="fa-solid fa-user"></i> Biodata</a>
-              <a href="#portofolio"
-                ><i class="fa-solid fa-briefcase"></i> Portofolio</a
-              >
+            <td class="brand">
+              <label class="hamburger" for="nav-toggle" title="Menu"
+                ><i class="fa-solid fa-bars"></i
+              ></label>
+              <i class="fa-solid fa-dragon"></i> Brand
+            </td>
+            <td style="text-align: right">
+              <!-- checkbox hack -->
+              <input type="checkbox" id="nav-toggle" />
+              <div class="menu">
+                <a href="#header"><i class="fa-solid fa-house"></i> Header</a>
+                <a href="#biodata"><i class="fa-solid fa-user"></i> Biodata</a>
+                <a href="#portofolio"
+                  ><i class="fa-solid fa-briefcase"></i> Portofolio</a
+                >
+              </div>
             </td>
           </tr>
         </table>
       </section>
 
-      <!-- b. SECTION 2: JUDUL DI KIRI & GAMBAR DI KANAN (TABLE 2 KOLOM) -->
+      <!-- SECTION 2: HERO -->
       <section class="hero">
         <table>
           <tr>
@@ -235,8 +345,8 @@
                 Saya
               </div>
               <p class="lead">
-                Ini adalah contoh header dua kolom. Kolom kiri berisi teks
-                seperti ini. Anda dapat mengganti isi sesuai kebutuhan.
+                Contoh header dua kolom memakai <b>table</b>. Di layar kecil,
+                konten kiri/kanan akan menumpuk otomatis.
               </p>
               <a class="btn" href="#biodata"
                 ><i class="fa-solid fa-circle-info"></i> Pelajari Lebih
@@ -252,7 +362,7 @@
         </table>
       </section>
 
-      <!-- c. SECTION 3: BIODATA (6 BOX, TABLE 3x2) -->
+      <!-- SECTION 3: BIODATA (6 BOX) -->
       <section id="biodata" class="biodata">
         <div class="section-title">About Me</div>
         <div class="section-sub">A brief introduction about myself</div>
@@ -287,7 +397,7 @@
               <div class="value">Membaca, Desain, Musik</div>
             </td>
             <td class="card">
-              <i class="fa-solid fa-map-marker-alt"></i>
+              <i class="fa-solid fa-location-dot"></i>
               <div class="label">Alamat</div>
               <div class="value">Kota, Provinsi</div>
             </td>
@@ -295,7 +405,7 @@
         </table>
       </section>
 
-      <!-- d. SECTION 4: PORTOFOLIO (TABLE 3 KOLOM) -->
+      <!-- SECTION 4: PORTOFOLIO -->
       <section id="portofolio" class="portfolio">
         <div class="section-title">Portofolio</div>
 
